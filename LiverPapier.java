@@ -1,11 +1,10 @@
  class LiverPapier extends Livre {
     private boolean emprunt;
-
-    public LiverPapier(String auteur, int Nomber_page, String title) {
-        this.auteur = auteur;
-        this.Nomber_page = Nomber_page;
-        this.title = title;
-        this.emprunt = false;
+    private double prix;
+    public LiverPapier(String auteur, int Nomber_page, String title,boolean emprunt) {
+      
+        super(auteur, Nomber_page, title);
+        this.emprunt = emprunt;
     }
 
     @Override
@@ -15,7 +14,7 @@
 
     @Override
     public boolean returned() {
-        if (isUmprunt()) {
+        if (!isUmprunt()) {
             emprunt = false;
             return true;
         }
@@ -28,5 +27,10 @@
             return true;
         }
         return false;
+    }
+
+    public double Calcule_Prix(){
+        double price=prix+(Nomber_page*0.05);
+        return price;
     }
 }
