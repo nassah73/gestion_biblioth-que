@@ -1,18 +1,43 @@
 import java.util.LinkedList;
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        LivreNumerique LivreNumirique= new LivreNumerique("Auteur1", 300, "Livre Numirique 1", 500, false,200);
-        LivreNumirique.telecharger();
-        
-        System.out.println("Le prix du livre numerique est: " +  LivreNumirique.Calcule_Prix()+"dhs");
+            Scanner ipute=new Scanner(System.in);
+            LinkedList<LiverPapier>listpapier=new LinkedList<>();
+            System.out.println("how many book you want to add:");
+            int n=ipute.nextInt();
 
-        LinkedList<LivreNumerique>liver_numerique=new LinkedList<LivreNumerique>();
+            for(int i=0; i<n; i++){
+                System.out.println("Book "+(i+1)+":");
+                    ipute.nextLine(); // Consume newline
+                System.out.println("Enter the auteur of book:");
+                String auteur=ipute.nextLine();
+              
 
-        liver_numerique.add(LivreNumirique);
+                System.out.println("Enter the Nomber_page:");
+                int Nomber_page=ipute.nextInt();
+                 ipute.nextLine(); // Consume newline
+               
+                 System.out.println("Enter the title of book:");
+                String title=ipute.nextLine();
+               
+                System.out.println("Enter the emprunt (true/false):");
+                Boolean imprunt=ipute.nextBoolean();
+                ipute.nextLine(); // Consume newline
 
-        for(LivreNumerique liver: liver_numerique){
-            System.out.println("titre:"+liver.title+" auteur:"+liver.auteur+" nombre de page:"+liver.Nomber_page);
-        }
+                System.out.println("Enter the prix of book:");
+                double prix=ipute.nextDouble();
+                ipute.nextLine(); // Consume newline
+
+                LiverPapier livrepapier=new LiverPapier(auteur,Nomber_page,title,imprunt,prix);
+                 listpapier.add(livrepapier);
+            }
+            int i=1;
+            for(LiverPapier ob:listpapier){
+                
+                System.out.println( "book "+(i)+":"+ "auteur: "+ob.auteur+" ,Nomber_page: "+ob.Nomber_page+" ,title: "+ob.title+" ,emprunt: "+ob.isUmprunt()+" ,prix: "+ob.Calcule_Prix());
+                i++;
+            }
 
     }
 }
