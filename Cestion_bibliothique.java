@@ -1,8 +1,20 @@
 import java.util.LinkedList;
-import java.util.Scanner;
+
 
 class Cestion_bibliothique {
-      static String typeOfBook(){
+       LinkedList<Livre>book=new LinkedList<>();
+       public void addbook(Livre l){
+        book.add(l);
+       }
+       public void removebook(Livre l){
+        book.remove(l);
+       }
+
+    }
+
+
+/* 
+   static String typeOfBook(){
         Scanner ipute=new Scanner(System.in);
         System.out.println("Choose the type of book to add:");
         System.out.println("1. LiverPapier");
@@ -20,8 +32,9 @@ class Cestion_bibliothique {
         return "";
     }
 
-       public static void principale() {
-            Scanner ipute=new Scanner(System.in);
+*/
+//   public static void principale() {
+       /*      Scanner ipute=new Scanner(System.in);
             LinkedList<LiverPapier>listpapier=new LinkedList<>();
             LinkedList<LivreNumerique>listnum=new LinkedList<>();
             LinkedList<Magazin>listMagazin=new LinkedList<>();
@@ -85,7 +98,7 @@ class Cestion_bibliothique {
 
 
                 
-            }}
+            }}*/
        /*    int j=1;
 
             if (bookType== "LiverPapier") {
@@ -106,5 +119,3 @@ class Cestion_bibliothique {
             }*/
 
 //}
-  }
-}
